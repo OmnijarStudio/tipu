@@ -5,7 +5,7 @@ const commonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 module.exports = {
     entry: {
-        'ostaa': "./src/index.ts"
+        'tipu': "./src/index.ts"
     },
     externals: {
     },
@@ -13,7 +13,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, '../lib'),
         libraryTarget: 'umd',
-        library: 'coorg',
+        library: 'tipu',
         umdNamedDefine: true
     },
     module: {
