@@ -9,13 +9,24 @@ enum LoggerLevel {
 
 interface Loggable {
 
-    level: LoggerLevel  
+    level: LoggerLevel; 
     
-    
+    trace(content?: string, ...optionalParams: string[]);
 
+    debug(content?: string, ...optionalParams: string[]);
+
+    info(content?: string, ...optionalParams: string[]);
+
+    warn(content?: string, ...optionalParams: string[]);
+
+    error(content?: string, ...optionalParams: string[]) ;
 }
 
 class Logger implements Loggable {
+
+    static getLogger(): Loggable {
+        return new Logger();
+    }
 
     private _level: LoggerLevel = LoggerLevel.Trace;
 
@@ -25,6 +36,10 @@ class Logger implements Loggable {
     
     public set level(newLevel : LoggerLevel) {
         this._level = newLevel;
+    }
+
+    private constructor() {
+
     }
 
     /**
@@ -77,3 +92,11 @@ class Logger implements Loggable {
         console.error(`ERROR: ${content}`, optionalParams);
     }
 }
+
+export {
+    Loggable,
+    Logger,
+    LoggerLevel
+}
+
+export default Logger.getLogger();

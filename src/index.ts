@@ -1,5 +1,3 @@
-class Tipu {
+import log from './Logger';
 
-}
-
-export default Tipu;
+export default log;

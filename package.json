@@ -6,6 +6,7 @@
     "types": "lib/types/index.d.ts",
     "scripts": {
       "build": "webpack --config build/webpack.config.dev.js",
+      "build:release": "webpack --config build/webpack.config.prod.js",
       "test": "mocha-webpack --webpack-config build/webpack.config.test.js test/**/*.spec.ts"
     },
     "repository": {
