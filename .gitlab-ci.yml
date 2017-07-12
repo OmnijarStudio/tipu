@@ -20,7 +20,7 @@ build:
     - make build
   artifacts:
     paths:
-      - .build/
+      - lib/
     expire_in: 1 week
   only:
     - schedules
