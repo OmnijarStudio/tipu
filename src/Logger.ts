@@ -49,7 +49,7 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public trace(content?: string, ...optionalParams: string[]) {
-        console.trace(`DEBUG: ${content}`, optionalParams);
+        console.trace(`TRACE: ${content}`, optionalParams);
     }
 
     /**
