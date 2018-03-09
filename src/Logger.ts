@@ -1,3 +1,6 @@
+/**
+ * The different kinds of logging levels supported by this logger.
+ */
 enum LoggerLevel {
     Trace = 0,
     Debug = 1,
@@ -9,8 +12,8 @@ enum LoggerLevel {
 
 interface Loggable {
 
-    level: LoggerLevel; 
-    
+    level: LoggerLevel;
+
     trace(content?: string, ...optionalParams: string[]);
 
     debug(content?: string, ...optionalParams: string[]);
@@ -19,7 +22,7 @@ interface Loggable {
 
     warn(content?: string, ...optionalParams: string[]);
 
-    error(content?: string, ...optionalParams: string[]) ;
+    error(content?: string, ...optionalParams: string[]);
 }
 
 class Logger implements Loggable {
@@ -28,15 +31,23 @@ class Logger implements Loggable {
         return new Logger();
     }
 
-    private _level: LoggerLevel = LoggerLevel.Trace;
-
+    /**
+     * Get the logger's current log level.
+     */
     public get level() : LoggerLevel {
-        return this.level;
+        return this._level;
     }
-    
+
+    /**
+     * Set the level of this logger. This changes the logger's behavior depending on the level set.
+     *
+     * @param newLevel - The new level to be followed by the logger.
+     */
     public set level(newLevel : LoggerLevel) {
         this._level = newLevel;
     }
+
+    private _level: LoggerLevel = LoggerLevel.Trace;
 
     private constructor() {
 
@@ -44,52 +55,62 @@ class Logger implements Loggable {
 
     /**
      * Sends trace message to the console if relevant.
-     * 
+     *
      * @param content Formatted string for the console.
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public trace(content?: string, ...optionalParams: string[]) {
-        console.trace(`TRACE: ${content}`, optionalParams);
+        if (this._level == LoggerLevel.Trace) {
+            console.trace(`TRACE: ${content}`, optionalParams);
+        }
     }
 
     /**
      * Sends debug message to the console if relevant.
-     * 
+     *
      * @param content Formatted string for the console.
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public debug(content?: string, ...optionalParams: string[]) {
-        console.debug(`DEBUG: ${content}`, optionalParams);
+        if (this._level <= LoggerLevel.Debug) {
+            console.debug(`DEBUG: ${content}`, optionalParams);
+        }
     }
 
     /**
      * Sends info message to the console if relevant.
-     * 
+     *
      * @param content Formatted string for the console.
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public info(content?: string, ...optionalParams: string[]) {
-        console.info(`INFO: ${content}`, optionalParams);
+        if (this._level <= LoggerLevel.Info) {
+            console.info(`INFO: ${content}`, optionalParams);
+        }
     }
 
     /**
      * Sends warning message to the console if relevant.
-     * 
+     *
      * @param content Formatted string for the console.
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public warn(content?: string, ...optionalParams: string[]) {
-        console.warn(`WARN: ${content}`, optionalParams);
+        if (this._level <= LoggerLevel.Warn) {
+            console.warn(`WARN: ${content}`, optionalParams);
+        }
     }
 
     /**
      * Sends error message to the console if relevant.
-     * 
+     *
      * @param content Formatted string for the console.
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public error(content?: string, ...optionalParams: string[]) {
-        console.error(`ERROR: ${content}`, optionalParams);
+        if (this._level <= LoggerLevel.Error) {
+            console.error(`ERROR: ${content}`, optionalParams);
+        }
     }
 }
 
