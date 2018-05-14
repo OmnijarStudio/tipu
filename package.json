@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Simple logging API for modern browsers.",
   "main": "lib/tipu.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "scripts": {
     "build": "rollup -c build/rollup.config.js --environment INCLUDE_DEPS,BUILD:development",
     "build:release": "rollup -c build/rollup.config.js --environment INCLUDE_DEPS,BUILD:production",

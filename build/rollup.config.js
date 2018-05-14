@@ -33,7 +33,10 @@ const plugins = [
         main: true,
         module: true
     }),
-    typescript(),
+    typescript({
+        tsconfig: 'tsconfig.json',
+        useTsconfigDeclarationDir: true
+    }),
 ]
 
 export default {
