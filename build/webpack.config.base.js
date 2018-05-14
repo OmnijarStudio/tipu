@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const commonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-
 module.exports = {
     entry: {
         'tipu': "./src/index.ts"
@@ -12,7 +10,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, '../lib'),
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs2',
         library: 'tipu',
         umdNamedDefine: true
     },

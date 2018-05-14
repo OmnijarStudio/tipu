@@ -6,6 +6,8 @@ const path = require('path');
 
 config.devtool = '#source-map';
 
+config.mode = 'production';
+
 config.plugins = (config.plugins || []).concat([
     new webpack.DefinePlugin({
         'process.env': {
