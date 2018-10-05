@@ -2,7 +2,9 @@
   "name": "tipu",
   "version": "0.0.0",
   "description": "Simple logging API for modern browsers.",
-  "main": "lib/tipu.js",
+  "jsnext:main": "lib/tipu.js",
+  "browser": "lib/tipu.cjs.js",
+  "main": "lib/tipu.cjs.js",
   "types": "lib/types/index.d.ts",
   "scripts": {
     "build": "rollup -c build/rollup.config.js --environment INCLUDE_DEPS,BUILD:development",
@@ -27,15 +29,16 @@
   "devDependencies": {
     "@types/chai": "^4.1.3",
     "@types/mocha": "^5.2.0",
-    "@types/node": "^10.0.8",
+    "@types/node": "^10.11.4",
     "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "rollup": "^0.58.2",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-typescript2": "^0.14.0",
-    "ts-loader": "^4.3.0",
-    "ts-node": "^6.0.3",
-    "typescript": "^2.8.3"
+    "mocha": "^5.2.0",
+    "rollup": "^0.66.4",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "ts-loader": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "^3.1.1"
   }
 }
