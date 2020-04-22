@@ -1,29 +1,5 @@
-/**
- * The different kinds of logging levels supported by this logger.
- */
-enum LoggerLevel {
-    Trace = 0,
-    Debug = 1,
-    Info = 2,
-    Warn = 3,
-    Error = 4,
-    Silent = 5
-}
-
-interface Loggable {
-
-    level: LoggerLevel;
-
-    trace(content?: string, ...optionalParams: string[]);
-
-    debug(content?: string, ...optionalParams: string[]);
-
-    info(content?: string, ...optionalParams: string[]);
-
-    warn(content?: string, ...optionalParams: string[]);
-
-    error(content?: string, ...optionalParams: string[]);
-}
+import Loggable from "./Loggable";
+import LoggingLevel from "./LoggingLevel";
 
 class Logger implements Loggable {
 
@@ -34,7 +10,7 @@ class Logger implements Loggable {
     /**
      * Get the logger's current log level.
      */
-    public get level() : LoggerLevel {
+    public get level() : LoggingLevel {
         return this._level;
     }
 
@@ -43,11 +19,11 @@ class Logger implements Loggable {
      *
      * @param newLevel - The new level to be followed by the logger.
      */
-    public set level(newLevel : LoggerLevel) {
+    public set level(newLevel : LoggingLevel) {
         this._level = newLevel;
     }
 
-    private _level: LoggerLevel = LoggerLevel.Trace;
+    private _level: LoggingLevel = LoggingLevel.Trace;
 
     private constructor() {
 
@@ -60,7 +36,7 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public trace(content?: string, ...optionalParams: string[]) {
-        if (this._level == LoggerLevel.Trace) {
+        if (this._level == LoggingLevel.Trace) {
             console.trace(`TRACE: ${content}`, optionalParams);
         }
     }
@@ -72,7 +48,7 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public debug(content?: string, ...optionalParams: string[]) {
-        if (this._level <= LoggerLevel.Debug) {
+        if (this._level <= LoggingLevel.Debug) {
             console.debug(`DEBUG: ${content}`, optionalParams);
         }
     }
@@ -84,7 +60,7 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public info(content?: string, ...optionalParams: string[]) {
-        if (this._level <= LoggerLevel.Info) {
+        if (this._level <= LoggingLevel.Info) {
             console.info(`INFO: ${content}`, optionalParams);
         }
     }
@@ -96,7 +72,7 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public warn(content?: string, ...optionalParams: string[]) {
-        if (this._level <= LoggerLevel.Warn) {
+        if (this._level <= LoggingLevel.Warn) {
             console.warn(`WARN: ${content}`, optionalParams);
         }
     }
@@ -108,16 +84,14 @@ class Logger implements Loggable {
      * @param optionalParams Additional parameters to interpolate into the `content`.
      */
     public error(content?: string, ...optionalParams: string[]) {
-        if (this._level <= LoggerLevel.Error) {
+        if (this._level <= LoggingLevel.Error) {
             console.error(`ERROR: ${content}`, optionalParams);
         }
     }
 }
 
 export {
-    Loggable,
     Logger,
-    LoggerLevel
 }
 
 export default Logger.getLogger();

@@ -1,8 +1,8 @@
 import log from './Logger';
-import { LoggerLevel } from  "./Logger";
+import LoggingLevel from  "./LoggingLevel";
 
 export default log;
 
 export {
-    LoggerLevel
+    LoggingLevel
 }

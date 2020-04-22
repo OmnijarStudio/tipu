@@ -13,7 +13,7 @@ const output = [
         file: `lib/tipu${config.suffix}.js`,
         format: config.format,
         name: 'Tipu',
-        sourceMap: true,
+        sourcemap: true,
         globals: {
         }
     };
@@ -22,9 +22,11 @@ const output = [
 const plugins = [
     resolve({
         browser: true,
-        jsnext: true,
-        main: true,
-        module: true
+        mainFields: [
+            'jsnext:main',
+            'main',
+            'module'
+        ]
     }),
     commonjs({
         exclude: 'node_modules/process-es6/**',
