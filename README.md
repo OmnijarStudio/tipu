@@ -45,4 +45,4 @@ log.warn('Looking good!');
 
 ## License
 
-MIT, see [LICENSE](https://github.com/naamio/ostaa/blob/master/LICENSE) for details.
+MIT, see [LICENSE](https://github.com/omnijarstudio/tipu/blob/master/LICENSE) for details.

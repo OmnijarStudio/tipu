@@ -1,25 +1,24 @@
 {
-    "version": "3.1.1",
+    "version": "3.8.3",
     "compileOnSave": false,
     "compilerOptions": {
         "allowJs": false,
         "alwaysStrict": true,
         "declaration": true,
-        "declarationDir": "lib/types",
+        "declarationDir": "../lib/types",
         "experimentalDecorators": true,
         "inlineSourceMap": false,
         "lib": [
             "dom",
-            "es2015",
-            "es2015.promise",
-            "es6"
+            "es6",
+            "ES2017"
         ],
         "module": "esnext",
         "moduleResolution": "node",
         "noImplicitAny": false,
         "noImplicitThis": false,
         "noLib": false,
-        "outDir": "./",
+        "outDir": "../lib",
         "preserveConstEnums": true,
         "removeComments": true,
         "sourceMap": true,
@@ -31,9 +30,9 @@
         ]
     },
     "include": [
-        "./src/**/*.ts"
+        "./**/*.ts"
     ],
     "exclude": [
-        "./node_modules/"
+        "../node_modules/"
     ]
 }

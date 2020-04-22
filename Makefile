@@ -4,6 +4,8 @@ NPM_BIN = $(shell npm bin)
 BUILD_DIR = .build
 SRC_BUILD_DIR = /lib
 
+all: test build
+
 # Prepare for build
 prepare:
 	
@@ -25,7 +27,5 @@ test: build
 build: clean
 
 	npm run build
-
-all: test build
 
 .PHONY: all prepare clean build

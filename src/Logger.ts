@@ -37,7 +37,7 @@ class Logger implements Loggable {
      */
     public trace(content?: string, ...optionalParams: string[]) {
         if (this._level == LoggingLevel.Trace) {
-            console.trace(`TRACE: ${content}`, optionalParams);
+            console.trace(`TRACE: ${content}`, ...optionalParams);
         }
     }
 
@@ -49,7 +49,7 @@ class Logger implements Loggable {
      */
     public debug(content?: string, ...optionalParams: string[]) {
         if (this._level <= LoggingLevel.Debug) {
-            console.debug(`DEBUG: ${content}`, optionalParams);
+            console.debug(`DEBUG: ${content}`, ...optionalParams);
         }
     }
 
@@ -61,7 +61,7 @@ class Logger implements Loggable {
      */
     public info(content?: string, ...optionalParams: string[]) {
         if (this._level <= LoggingLevel.Info) {
-            console.info(`INFO: ${content}`, optionalParams);
+            console.info(`INFO: ${content}`, ...optionalParams);
         }
     }
 
@@ -73,7 +73,7 @@ class Logger implements Loggable {
      */
     public warn(content?: string, ...optionalParams: string[]) {
         if (this._level <= LoggingLevel.Warn) {
-            console.warn(`WARN: ${content}`, optionalParams);
+            console.warn(`WARN: ${content}`, ...optionalParams);
         }
     }
 
@@ -85,7 +85,7 @@ class Logger implements Loggable {
      */
     public error(content?: string, ...optionalParams: string[]) {
         if (this._level <= LoggingLevel.Error) {
-            console.error(`ERROR: ${content}`, optionalParams);
+            console.error(`ERROR: ${content}`, ...optionalParams);
         }
     }
 }

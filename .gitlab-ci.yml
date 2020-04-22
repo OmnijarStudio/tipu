@@ -4,7 +4,7 @@ stages:
   - deploy
 
 test:
-  image: node:9.3
+  image: node:12.16
   stage: test
   script: 
     - make prepare
@@ -13,7 +13,7 @@ test:
     - branches
 
 build:
-  image: node:9.3
+  image: node:12.16
   stage: build
   script: 
     - make prepare

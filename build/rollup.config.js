@@ -1,6 +1,6 @@
-import commonjs from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 
 const output = [
     { format: 'cjs', suffix: '.cjs' },
@@ -9,8 +9,9 @@ const output = [
     { format: 'umd', suffix: '.umd' }
 ].map((config) => {
     return {
+        dir: 'lib',
+        entryFileNames: `tipu${config.suffix}.js`,
         exports: 'named',
-        file: `lib/tipu${config.suffix}.js`,
         format: config.format,
         name: 'Tipu',
         sourcemap: true,
@@ -36,7 +37,7 @@ const plugins = [
         }
     }),
     typescript({
-        tsconfig: 'tsconfig.json'
+        tsconfig: 'src/tsconfig.json'
     })
 ];
 
