@@ -5,6 +5,7 @@
     "browser": "lib/tipu.js",
     "module": "lib/tipu.js",
     "types": "lib/types/index.d.ts",
+    "type": "module",
     "scripts": {
         "build": "rollup -c build/rollup.config.js --environment INCLUDE_DEPS,BUILD:development",
         "build:release": "rollup -c build/rollup.config.js --environment INCLUDE_DEPS,BUILD:production",

@@ -2,7 +2,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 
 const output = [
+    { format: 'cjs', suffix: '.cjs' },
+    { format: 'amd', suffix: '.amd' },
     { format: 'es', suffix: '' },
+    { format: 'umd', suffix: '.umd' }
 ].map((config) => {
     return {
         dir: 'lib',

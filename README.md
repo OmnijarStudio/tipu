@@ -23,7 +23,7 @@ Tipu has four build versions: ES, CommonJS, AMD, and UMD.
 
 **ES, CommonJS:**
 ```javascript
-import * as log from 'tipu';
+import log from 'tipu';
 ```
 **AMD:**
 ```javascript

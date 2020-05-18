@@ -1,4 +1,4 @@
-import 'mocha';
+import "mocha";
 import log from "../src";
 
 describe('Logger Tests', () => {
