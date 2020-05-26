@@ -1,8 +1,9 @@
 {
     "name": "tipu",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Simple logging API for modern browsers.",
     "browser": "lib/tipu.js",
+    "main": "lib/tipu.js",
     "module": "lib/tipu.js",
     "types": "lib/types/index.d.ts",
     "type": "module",
